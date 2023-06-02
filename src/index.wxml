@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<view class="container class {{disabled ? 'disabled-class' : ''}}">
+    <view class="button_area button-class {{disabled ? 'disabled_button_area disabled-button-class' : ''}}" catchtap="decrease">
+        <view>-</view>
+    </view>
+    <input class="input_area input-class {{disabled ? 'disabled_input_area disabled-input-class' : ''}}" model:value="{{value}}" disabled="{{disabled}}" type="number" />
+    <view class="button_area button-class {{disabled ? 'disabled_button_area disabled-button-class' : ''}}" catchtap="increase">
+        <view>+</view>
+    </view>
+</view>

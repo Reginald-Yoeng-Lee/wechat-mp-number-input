@@ -1,0 +1,10 @@
+**/node_modules
+**/miniprogram_npm
+
+**/*.tsbuildinfo
+
+**/*.ts
+**/*.less
+**/*.wxss.map
+
+.idea/
