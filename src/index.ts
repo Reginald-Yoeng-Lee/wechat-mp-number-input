@@ -108,6 +108,9 @@ export default Component<DataOption, PropertyOption, MethodOption, CustomInstanc
                 this.triggerEvent('change', {
                     value: this.data.value,
                     lastValue: this.lastValue,
+                }, {
+                    bubbles: true,
+                    capturePhase: true,
                 });
                 this.lastValue = value;
             }
