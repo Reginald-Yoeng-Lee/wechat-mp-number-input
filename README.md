@@ -95,30 +95,40 @@ Page({
 
 本组件主要由一个顶层容器以及容器内 **+按钮** , **-按钮** 以及 **输入框** 三部份构成, 每部分可使用的外部样式类如下
 
-| 属性                    | 作用范围         |
-|-----------------------|--------------|
-| class                 | 顶层容器         |
-| disabled-class        | (禁用组件时) 顶层容器 |
-| button-class          | 加减按钮         |
-| disabled-button-class | (禁用组件时) 加减按钮 |
-| input-class           | 输入框          |
-| disabled-input-class  | (禁用组件时) 输入框  |
+| 属性                             | 作用范围         |
+|--------------------------------|--------------|
+| class                          | 顶层容器         |
+| disabled-class                 | (禁用组件时) 顶层容器 |
+| button-class                   | 加减按钮         |
+| disabled-button-class          | (禁用组件时) 加减按钮 |
+| increase-button-class          | 递增(+)按钮      |
+| disabled-increase-button-class | (禁用组件时) 递增按钮 |
+| decrease-button-class          | 递减(-)按钮      |
+| disabled-decrease-button-class | (禁用组件时) 递减按钮 |
+| input-class                    | 输入框          |
+| disabled-input-class           | (禁用组件时) 输入框  |
 
 详细的外部样式类使用请参考官方文档[外部样式类](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/wxml-wxss.html#%E5%A4%96%E9%83%A8%E6%A0%B7%E5%BC%8F%E7%B1%BB)
 
-注: 由于微信小程序对同一节点上同时使用普通样式和外部样式的优先级未作定义, 而为了方便组件开箱即用定义了默认样式, 因此当外部样式因冲突而不生效时, 建议酌情使用`!important`. 例如:
+> 通常情况下, `increase-button-class` 和 `decrease-button-class` 的优先级高于 `button-class`, 因此 `button-class` 可作为默认选项使用. 但由于微信本身对应用在同一组件上的多个样式类优先级的迷之定义,
+> 建议尽量避免同时使用 `increase-button-class`/`decrease-button-class` 和 `button-class`. (`disable-*`同理) 
+
+注: 由于微信小程序对同一节点上同时使用普通样式和外部样式的优先级未作定义, 而为了方便组件开箱即用定义了默认样式,
+因此当外部样式因冲突而不生效时, 建议酌情使用`!important`. 例如:
 
 ```less
 .button {
-  width: 30rpx  !important;
+  width: 30 rpx !important;
 }
 ```
 
 ### 事件
 
 ##### change
-输入框数值变化时触发. 注意当输入框的新数值超出设定范围时,将自动重设为旧的数值, 此时数值将被视为没有变化, 此事件不被触发  
+
+输入框数值变化时触发. 注意当输入框的新数值超出设定范围时,将自动重设为旧的数值, 此时数值将被视为没有变化, 此事件不被触发
 
 携带参数:
+
 - value: 改变后的数值
 - lastValue: 改变前的数值
